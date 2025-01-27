@@ -7,6 +7,7 @@ import { ConvertCurrencyDto } from './dto/convert-currency.dto';
 export class SlotMachineService {
   constructor(private readonly httpService: HttpService) {}
 
+  // Mock reels for the slot machine
   private reels = [
     ['cherry', 'lemon', 'apple', 'lemon', 'banana', 'banana', 'lemon', 'lemon'],
     ['lemon', 'apple', 'lemon', 'lemon', 'cherry', 'apple', 'banana', 'lemon'],
@@ -53,6 +54,7 @@ export class SlotMachineService {
   async convertCurrency(dto: ConvertCurrencyDto): Promise<number> {
     const { amount, from, to } = dto;
 
+    // Fetch the latest exchange rates
     const response = await this.httpService
       .get(`https://open.er-api.com/v6/latest/${from}`)
       .toPromise();

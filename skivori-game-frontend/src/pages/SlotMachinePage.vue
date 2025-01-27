@@ -1,10 +1,12 @@
 <template>
+  <!-- Slot Machine page content with the convert currency logic applied-->
   <q-page padding>
     <q-toolbar>
       <q-toolbar-title class="flex justify-center"
         >Slot Machine</q-toolbar-title
       >
     </q-toolbar>
+    <!-- Used to simulate a slot machine on page -->
     <q-card class="slot-machine-card">
       <q-card-section>
         <div class="slot-machine-reels">
@@ -26,6 +28,7 @@
           class="spin-button"
         />
 
+        <!-- Display the result of the spin. Visible only when the user spins the slot machine -->
         <div class="results">
           <p v-if="resultMessage">Result: {{ resultMessage }}</p>
           <p v-if="reward > 0">Reward: {{ reward }} coins</p>
@@ -33,6 +36,7 @@
         </div>
       </q-card-section>
 
+      <!-- Conver currency logic -->
       <q-card-section class="convert-balance">
         <div class="q-gutter-sm q-flex items-center row">
           <q-input

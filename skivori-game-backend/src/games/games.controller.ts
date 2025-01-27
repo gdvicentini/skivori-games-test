@@ -3,17 +3,20 @@ import { GamesService } from './games.service';
 import { SearchGamesDto } from './dto/search-games.dto';
 import { ApiTags, ApiOperation, ApiQuery } from '@nestjs/swagger';
 
+// All the decorators for Swagger documentation were added using Github Copilot, based on the ChatGPT response in other files
 @ApiTags('Games')
 @Controller('games')
 export class GamesController {
   constructor(private readonly gamesService: GamesService) {}
 
+  // Simple getAll method to use in the /games frontend route
   @Get()
   @ApiOperation({ summary: 'Get all games' })
   getAllGames() {
     return this.gamesService.getAllGames();
   }
 
+  // The idea of this method is to search games by various criteria, thinking that the use would want to search by title, ID, slug, or provider name
   @Get('search')
   @ApiOperation({ summary: 'Search games by various criteria' })
   @ApiQuery({

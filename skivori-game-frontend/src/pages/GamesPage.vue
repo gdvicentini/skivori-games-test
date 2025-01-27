@@ -1,9 +1,11 @@
 <template>
+  <!-- Page content to list all the games in game-data.json -->
   <q-page padding class="q-pa-md">
     <div
       class="q-mb-md"
       style="display: flex; justify-content: center; align-items: center"
     >
+      <!-- By using the q-select component, we can filter the games by ID, Slug, Provider Name, or Query -->
       <q-select
         outlined
         v-model="filterType"

@@ -1,7 +1,10 @@
+// Purpose: DTO for game data in games controller.
+// Used Github Copilot to generate the class
 import { IsString, IsUrl } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class GameDTO {
+  // For all the ApiProperty decorators, I used the example value from the provided JSON file with ChatGPT's response
   @ApiProperty({
     description: 'Unique identifier for the game',
     example: 'playngo_legacy-of-dead',

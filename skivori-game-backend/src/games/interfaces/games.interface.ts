@@ -1,5 +1,6 @@
+// Used Github Copilot to generate the interface
 export interface Game {
-  id: string;  // O id é do tipo string
+  id: string;
   slug: string;
   title: string;
   providerName: string;

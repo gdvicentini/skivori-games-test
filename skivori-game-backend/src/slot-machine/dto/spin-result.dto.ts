@@ -1,3 +1,5 @@
+// Purpose: Data transfer object for the result of a slot machine spin.
+// Used Github Copilot to generate the class
 import { ApiProperty } from '@nestjs/swagger';
 
 export class SpinResult {

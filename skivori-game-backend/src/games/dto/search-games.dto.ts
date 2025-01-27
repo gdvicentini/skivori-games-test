@@ -1,3 +1,5 @@
+// Purpose: DTO for searching games in games controller.
+// Used Github Copilot to generate the class
 import { IsString, IsOptional } from 'class-validator';
 
 export class SearchGamesDto {

@@ -34,18 +34,21 @@ cd skivori-games-test
 
   ```bash
   npm install -g @nestjs/cli
+  ```
 
 2. **Install Dependencies**
   
   ```bash
   cd skivori-game-backend
   npm install
+  ```
 
 3. **Run the Backend Project**
   
   Open the terminal and run:
   ```bash
   npm run start
+  ```
 
 ## Frontend - Vue 3 with Quasar Setup
 
@@ -66,6 +69,7 @@ Ensure that you have the following installed:
 
   ```bash
   npm install -g @vue/cli
+  ```
 
 2. **Install Quasar CLI**
   
@@ -73,19 +77,21 @@ Ensure that you have the following installed:
 
   ```bash
   npm install -g @quasar/cli
+  ```
 
 3. **Install Dependencies**
   
   ```bash
   cd skivori-game-frontend
   npm install
+  ```
 
 4. **Run the Frontend Project**
   
   Open the terminal and run: 
   ```bash
   quasar dev
-
+  ```
 
 ## API Routes
 
