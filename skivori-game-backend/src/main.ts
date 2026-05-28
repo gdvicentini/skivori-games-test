@@ -1,13 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { DataSource } from 'typeorm';
+import { seedGames } from './games/seeds/games.seed';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api/v1');
-  
+
   app.enableCors({
-    origin: 'http://localhost:9000', // Origin I used on vue frontend application
+    origin: process.env.FRONTEND_URL || 'http://localhost:9000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
@@ -20,6 +22,10 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/v1/docs', app, document);
+
+  // Roda o seed ao iniciar
+  const dataSource = app.get(DataSource);
+  await seedGames(dataSource);
 
   await app.listen(process.env.PORT ?? 3000);
 }

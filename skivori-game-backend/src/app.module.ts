@@ -1,4 +1,6 @@
 import { Module, MiddlewareConsumer } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GamesModule } from './games/games.module';
@@ -7,16 +9,24 @@ import { ValidationMiddleware } from './common/middleware/validation.middleware'
 import { LoggingMiddleware } from './common/middleware/logging.middleware';
 
 @Module({
-  imports: [GamesModule, SlotMachineModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      autoLoadEntities: true,
+      synchronize: process.env.NODE_ENV !== 'production',
+      ssl: { rejectUnauthorized: false },
+    }),
+    GamesModule,
+    SlotMachineModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    // Middleware de validação aplicado à rota "/spin"
     consumer.apply(ValidationMiddleware).forRoutes('slot-machine/spin');
-
-    // Middleware de logging aplicado globalmente
     consumer.apply(LoggingMiddleware).forRoutes('*');
   }
 }
