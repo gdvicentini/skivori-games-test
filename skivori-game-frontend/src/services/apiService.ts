@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:3000/api/v1';
+const API_BASE = process.env.VITE_API_BASE || 'http://localhost:3000/api/v1';
 
 export const fetchGames = async (filterType: string, searchTerm: string) => {
   try {
