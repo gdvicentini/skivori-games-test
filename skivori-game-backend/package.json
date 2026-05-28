@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nestjs/cli": "^11.0.21",
     "@nestjs/axios": "^4.0.1",
     "@nestjs/common": "^11.1.23",
     "@nestjs/config": "^4.0.4",
@@ -38,7 +39,6 @@
     "typeorm": "^0.3.30"
   },
   "devDependencies": {
-    "@nestjs/cli": "^11.0.21",
     "@nestjs/schematics": "^11.1.0",
     "@nestjs/testing": "^11.1.23",
     "@types/express": "^5.0.0",
